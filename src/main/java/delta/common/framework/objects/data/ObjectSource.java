@@ -88,7 +88,7 @@ public class ObjectSource<E extends Identifiable<Long>>
    * Delete an object in the managed persistence system.
    * @param primaryKey Primary of the object to delete.
    */
-  public void delete(long primaryKey)
+  public void delete(Long primaryKey)
   {
     _driver.delete(primaryKey);
     if (_cache!=null)
@@ -135,7 +135,7 @@ public class ObjectSource<E extends Identifiable<Long>>
    * @param primaryKey Identifying key for the targeted object.
    * @return The loaded object or <code>null</code> if not found.
    */
-  public E loadPartial(long primaryKey)
+  public E loadPartial(Long primaryKey)
   {
     E ret=null;
     if(_driver!=null)
@@ -229,7 +229,7 @@ public class ObjectSource<E extends Identifiable<Long>>
       E o=null;
       for(int i=0;i<nb;i++)
       {
-        o=_driver.getPartialByPrimaryKey(primaryKeys.get(i).longValue());
+        o=_driver.getPartialByPrimaryKey(primaryKeys.get(i));
         if(o!=null)
         {
           ret.add(o);
@@ -265,7 +265,7 @@ public class ObjectSource<E extends Identifiable<Long>>
    * @param primaryKey Primary key of the root object.
    * @return A list of such objects.
    */
-  public List<E> loadRelationUsingPartials(String relationName, long primaryKey)
+  public List<E> loadRelationUsingPartials(String relationName, Long primaryKey)
   {
     List<E> ret=null;
     if(_driver!=null)

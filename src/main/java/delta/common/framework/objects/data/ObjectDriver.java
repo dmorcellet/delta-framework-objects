@@ -1,7 +1,6 @@
 package delta.common.framework.objects.data;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -66,12 +65,9 @@ public class ObjectDriver<E extends Identifiable<Long>>
   public List<E> getByPrimaryKeyList(List<Long> primaryKeys)
   {
     List<E> list=new ArrayList<E>();
-    Long l;
-    E element;
-    for(Iterator<Long> it=primaryKeys.iterator();it.hasNext();)
+    for(Long l : primaryKeys)
     {
-      l=it.next();
-      element=getByPrimaryKey(l);
+      E element=getByPrimaryKey(l);
       if (element!=null)
       {
         list.add(element);
@@ -131,7 +127,7 @@ public class ObjectDriver<E extends Identifiable<Long>>
    * Delete an object in the managed persistence system.
    * @param primaryKey Primary of the object to delete.
    */
-  public void delete(long primaryKey)
+  public void delete(Long primaryKey)
   {
     // Nothing to do !
   }
