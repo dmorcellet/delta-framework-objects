@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import delta.common.framework.objects.data.Identifiable;
 import delta.common.utils.traces.UtilsLoggers;
 
 /**
@@ -12,16 +13,36 @@ import delta.common.utils.traces.UtilsLoggers;
  * @author DAM
  * @param <E> Type of the data objects to manage.
  */
-public class ObjectDriver<E extends Identifiable<Long>>
+public class ObjectsConnector<E extends Identifiable<Long>>
 {
   private static final Logger _logger=UtilsLoggers.getUtilsLogger();
+
+  private ObjectsSource _source;
 
   /**
    * Default constructor.
    */
-  public ObjectDriver()
+  public ObjectsConnector()
   {
     // Nothing to do !
+  }
+
+  /**
+   * Get the objects source for this object.
+   * @return the objects source for this object.
+   */
+  public ObjectsSource getObjectSource()
+  {
+    return _source;
+  }
+
+  /**
+   * Set the objects source for this object.
+   * @param source Source to set.
+   */
+  public void setObjectSource(ObjectsSource source)
+  {
+    _source=source;
   }
 
   /**

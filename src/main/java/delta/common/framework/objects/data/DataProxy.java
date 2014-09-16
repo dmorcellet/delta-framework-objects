@@ -9,14 +9,14 @@ public class DataProxy<E extends Identifiable<Long>>
 {
   private Long _primaryKey;
   private E _target;
-  private ObjectSource<E> _source;
+  private ObjectsManager<E> _source;
 
   /**
    * Full constructor.
    * @param primaryKey Object identifier.
    * @param source Parent objects source.
    */
-  public DataProxy(Long primaryKey, ObjectSource<E> source)
+  public DataProxy(Long primaryKey, ObjectsManager<E> source)
   {
     _primaryKey=primaryKey;
     _source=source;
@@ -43,7 +43,7 @@ public class DataProxy<E extends Identifiable<Long>>
    * Get the objects source of this proxy.
    * @return the objects source of this proxy.
    */
-  public ObjectSource<E> getSource()
+  public ObjectsManager<E> getSource()
   {
   	return _source;
   }

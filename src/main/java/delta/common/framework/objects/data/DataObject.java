@@ -1,6 +1,5 @@
 package delta.common.framework.objects.data;
 
-
 /**
  * Base class for data objects.
  * @author DAM
@@ -9,7 +8,6 @@ package delta.common.framework.objects.data;
 public abstract class DataObject<E extends Identifiable<Long>> implements Identifiable<Long>
 {
   private Long _primaryKey;
-  private ObjectSource<E> _source;
 
   /**
    * Default constructor.
@@ -17,26 +15,6 @@ public abstract class DataObject<E extends Identifiable<Long>> implements Identi
   public DataObject()
   {
     // Nothing to do !
-  }
-
-  /**
-   * Constructor.
-   * @param primaryKey Object identifier.
-   * @param source Parent objects source.
-   */
-  public DataObject(Long primaryKey, ObjectSource<E> source)
-  {
-    _primaryKey=primaryKey;
-    _source=source;
-  }
-
-  /**
-   * Get the objects source for this object.
-   * @return the objects source for this object.
-   */
-  public ObjectSource<E> getSource()
-  {
-    return _source;
   }
 
   /**

@@ -2,15 +2,15 @@ package delta.common.framework.objects.sql;
 
 import java.sql.Connection;
 
-import delta.common.framework.objects.data.DataObject;
-import delta.common.framework.objects.data.ObjectDriver;
+import delta.common.framework.objects.data.Identifiable;
+import delta.common.framework.objects.data.ObjectsConnector;
 
 /**
  * JDBC-based objects driver.
  * @author DAM
  * @param <E> Type of the data objects to manage.
  */
-public class ObjectSqlDriver<E extends DataObject<E>> extends ObjectDriver<E>
+public class ObjectSqlDriver<E extends Identifiable<Long>> extends ObjectsConnector<E>
 {
   private Connection _connection;
   private DatabaseType _dbType;

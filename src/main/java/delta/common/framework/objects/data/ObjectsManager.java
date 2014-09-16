@@ -7,34 +7,40 @@ import delta.common.utils.configuration.Configuration;
 import delta.common.utils.configuration.Configurations;
 
 /**
- * Objects source.
- * Manages all the objects of a class in a single persistence system.
+ * Objects manager.
+ * Manages all the objects of a class in a single data location.
  * @author DAM
  * @param <E> Type of the data objects to manage.
  */
-public class ObjectSource<E extends Identifiable<Long>>
+public class ObjectsManager<E extends Identifiable<Long>>
 {
   /**
    * Number of load requests.
    */
   public static long _nbGetRequests=0;
-  private ObjectCache<E> _cache;
-  private ObjectDriver<E> _driver;
+  private ObjectsCache<E> _cache;
+  private ObjectsConnector<E> _driver;
 
   /**
    * Constructor.
-   * @param driver Driver to use to create/read/update/delete objects.
    */
-  public ObjectSource(ObjectDriver<E> driver)
+  public ObjectsManager()
   {
-    _driver=driver;
     Configuration cfg=Configurations.getConfiguration();
-
     boolean useCache=cfg.getBooleanValue("OBJECTS","USE_CACHE",false);
     if (useCache)
     {
-      _cache=new ObjectCache<E>();
+      _cache=new ObjectsCache<E>();
     }
+  }
+
+  /**
+   * Set driver.
+   * @param driver Driver to use to create/read/update/delete objects.
+   */
+  public void setDriver(ObjectsConnector<E> driver)
+  {
+    _driver=driver;
   }
 
   /**
@@ -45,17 +51,6 @@ public class ObjectSource<E extends Identifiable<Long>>
   public DataProxy<E> buildProxy(Long key)
   {
     return new DataProxy<E>(key,this);
-  }
-
-  /**
-   * Build a proxy for an object of this source.
-   * @param key Identifier for the proxied object.
-   * @return A proxy.
-   */
-  public DataProxy<E> buildProxy(long key)
-  {
-    Long idKey=(key!=0)?Long.valueOf(key):null;
-    return new DataProxy<E>(idKey,this);
   }
 
   /**
@@ -73,7 +68,7 @@ public class ObjectSource<E extends Identifiable<Long>>
 
   /**
    * Update an object in the managed persistence system.
-   * @param object Object to create.
+   * @param object Object to update.
    */
   public void update(E object)
   {
@@ -158,7 +153,7 @@ public class ObjectSource<E extends Identifiable<Long>>
       if (_cache!=null)
       {
         _cache.putAll(ret);
-        System.out.println("Cache/loadAll : "+_driver.getClass().getName());
+        //System.out.println("Cache/loadAll : "+_driver.getClass().getName());
       }
     }
   	return ret;

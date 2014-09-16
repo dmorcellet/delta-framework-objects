@@ -9,14 +9,14 @@ import java.util.Iterator;
  * @author DAM
  * @param <E> Type of the data objects to manage.
  */
-public class ObjectCache<E extends Identifiable<Long>>
+public class ObjectsCache<E extends Identifiable<Long>>
 {
   private HashMap<Long,E> _cache;
 
   /**
    * Default constructor.
    */
-  public ObjectCache()
+  public ObjectsCache()
   {
     _cache=new HashMap<Long,E>();
   }
