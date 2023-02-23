@@ -6,15 +6,13 @@ import java.util.Properties;
 
 import org.apache.log4j.Logger;
 
-import delta.common.utils.traces.UtilsLoggers;
-
 /**
  * Access to database parameters.
  * @author DAM
  */
 public class DatabaseConfiguration
 {
-  private static final Logger _logger=UtilsLoggers.getUtilsLogger();
+  private static final Logger LOGGER=Logger.getLogger(DatabaseConfiguration.class);
 
   private String _dbType;
   private String _jdbcDriver;
@@ -37,7 +35,7 @@ public class DatabaseConfiguration
     }
     catch(IOException ioe)
     {
-      _logger.error("",ioe);
+      LOGGER.error("",ioe);
     }
     loadFromProperties(props);
   }
@@ -50,13 +48,13 @@ public class DatabaseConfiguration
     _jdbcUrl=props.getProperty(_dbType+".jdbc.urlPattern","jdbc:mysql://localhost:3306/${dbName}");
     _jdbcUser=props.getProperty(_dbType+".jdbc.user","scott");
     _jdbcPassword=props.getProperty(_dbType+".jdbc.password","tiger");
-    if (_logger.isInfoEnabled())
+    if (LOGGER.isInfoEnabled())
     {
-      _logger.info("_dbType="+_dbType);
-      _logger.info("_jdbcDriver="+_jdbcDriver);
-      _logger.info("_jdbcUrl="+_jdbcUrl);
-      _logger.info("_jdbcUser="+_jdbcUser);
-      _logger.info("_jdbcPassword="+_jdbcPassword);
+      LOGGER.info("_dbType="+_dbType);
+      LOGGER.info("_jdbcDriver="+_jdbcDriver);
+      LOGGER.info("_jdbcUrl="+_jdbcUrl);
+      LOGGER.info("_jdbcUser="+_jdbcUser);
+      LOGGER.info("_jdbcPassword="+_jdbcPassword);
     }
   }
 

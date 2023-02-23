@@ -8,15 +8,13 @@ import java.util.HashMap;
 
 import org.apache.log4j.Logger;
 
-import delta.common.utils.traces.UtilsLoggers;
-
 /**
  * Manages the persistence drivers for an objects source.
  * @author DAM
  */
 public class ObjectSqlDriverManager
 {
-  private static final Logger _logger=UtilsLoggers.getUtilsLogger();
+  private static final Logger LOGGER=Logger.getLogger(ObjectSqlDriverManager.class);
   private String _dbName;
   private DatabaseConfiguration _databaseCfg;
   private DatabaseType _databaseType;
@@ -85,7 +83,7 @@ public class ObjectSqlDriverManager
     }
     catch(Exception e)
     {
-      _logger.error("",e);
+      LOGGER.error("",e);
     }
     finally
     {
@@ -98,7 +96,7 @@ public class ObjectSqlDriverManager
         }
         catch(Exception e)
         {
-          _logger.error("",e);
+          LOGGER.error("",e);
         }
       }
     }
@@ -128,7 +126,7 @@ public class ObjectSqlDriverManager
     }
     catch (SQLException e)
     {
-      _logger.error("",e);
+      LOGGER.error("",e);
     }
   }
 }

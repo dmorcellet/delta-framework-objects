@@ -5,9 +5,6 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import delta.common.framework.objects.data.Identifiable;
-import delta.common.utils.traces.UtilsLoggers;
-
 /**
  * Driver that manages the persistence of a single data objects class.
  * @author DAM
@@ -15,7 +12,7 @@ import delta.common.utils.traces.UtilsLoggers;
  */
 public class ObjectsConnector<E extends Identifiable<Long>>
 {
-  private static final Logger _logger=UtilsLoggers.getUtilsLogger();
+  private static final Logger LOGGER=Logger.getLogger(ObjectsConnector.class);
 
   private ObjectsSource _source;
 
@@ -95,7 +92,7 @@ public class ObjectsConnector<E extends Identifiable<Long>>
       }
       else
       {
-        _logger.error("Object not found : "+l.longValue());
+        LOGGER.error("Object not found : "+l.longValue());
       }
     }
     return list;
