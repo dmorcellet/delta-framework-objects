@@ -1,5 +1,6 @@
 package delta.common.framework.objects.data;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -32,6 +33,16 @@ public class ObjectsSource
   }
 
   /**
+   * Get the managed classes.
+   * @return A list of managed classes.
+   */
+  public List<Class<?>> getManagedClasses()
+  {
+    List<Class<?>> ret=new ArrayList<Class<?>>(_managers.keySet());
+    return ret;
+  }
+
+  /**
    * Get the manager for a class.
    * @param c Class of objects.
    * @return A manager or <code>null</code> if not found.
@@ -40,6 +51,16 @@ public class ObjectsSource
   public <E extends Identifiable<Long>> ObjectsManager<E> getManager(Class<E> c)
   {
     return (ObjectsManager<E>)_managers.get(c);
+  }
+
+  /**
+   * Get the manager for a class.
+   * @param c Class of objects.
+   * @return A manager or <code>null</code> if not found.
+   */
+  public ObjectsManager<?> getRawManager(Class<?> c)
+  {
+    return _managers.get(c);
   }
 
   /**

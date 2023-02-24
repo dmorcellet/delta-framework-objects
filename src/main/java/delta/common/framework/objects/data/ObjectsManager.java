@@ -27,11 +27,29 @@ public class ObjectsManager<E extends Identifiable<Long>>
   public ObjectsManager()
   {
     Configuration cfg=Configurations.getConfiguration();
-    boolean useCache=cfg.getBooleanValue("OBJECTS","USE_CACHE",false);
+    boolean useCache=cfg.getBooleanValue("OBJECTS","USE_CACHE",true);
     if (useCache)
     {
       _cache=new ObjectsCache<E>();
     }
+  }
+
+  /**
+   * Get the managed cache.
+   * @return the managed cache.
+   */
+  public ObjectsCache<E> getCache()
+  {
+    return _cache;
+  }
+
+  /**
+   * Get the driver.
+   * @return the driver.
+   */
+  public ObjectsConnector<E> getDriver()
+  {
+    return _driver;
   }
 
   /**

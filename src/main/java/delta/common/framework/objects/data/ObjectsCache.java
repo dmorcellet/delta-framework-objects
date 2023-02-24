@@ -1,8 +1,10 @@
 package delta.common.framework.objects.data;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * Cache for data objects.
@@ -30,6 +32,15 @@ public class ObjectsCache<E extends Identifiable<Long>>
   {
     E ret=_cache.get(primaryKey);
     return ret;
+  }
+
+  /**
+   * Get all cached objects.
+   * @return A list of objects.
+   */
+  public List<E> getAll()
+  {
+    return new ArrayList<E>(_cache.values());
   }
 
   /**
