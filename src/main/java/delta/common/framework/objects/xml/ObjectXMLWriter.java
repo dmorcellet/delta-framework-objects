@@ -25,6 +25,7 @@ public interface ObjectXMLWriter<E extends Identifiable<Long>>
    * Write child tags for the object, if any.
    * @param hd Output stream.
    * @param object Object to write.
+   * @throws Exception if an error occurs.
    */
-  void writeChildTags(TransformerHandler hd, E object);
+  void writeChildTags(TransformerHandler hd, E object) throws Exception;
 }

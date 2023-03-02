@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.xml.transform.sax.TransformerHandler;
 
-import org.xml.sax.SAXException;
 import org.xml.sax.helpers.AttributesImpl;
 
 import delta.common.framework.objects.data.Identifiable;
@@ -52,7 +51,7 @@ public class ObjectsXMLWriter<E extends Identifiable<Long>>
     return ret;
   }
 
-  private void writeObjects(TransformerHandler hd, List<E> objects) throws SAXException
+  private void writeObjects(TransformerHandler hd, List<E> objects) throws Exception
   {
     AttributesImpl emptyAttrs=new AttributesImpl();
     hd.startElement("","",ObjectsXMLConstants.OBJECTS_TAG,emptyAttrs);
@@ -63,7 +62,7 @@ public class ObjectsXMLWriter<E extends Identifiable<Long>>
     hd.endElement("","",ObjectsXMLConstants.OBJECTS_TAG);
   }
 
-  private void writeObject(TransformerHandler hd, E object) throws SAXException
+  private void writeObject(TransformerHandler hd, E object) throws Exception
   {
     AttributesImpl objectAttrs=new AttributesImpl();
     // Identifier

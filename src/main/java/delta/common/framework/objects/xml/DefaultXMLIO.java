@@ -39,7 +39,7 @@ public class DefaultXMLIO<E extends Identifiable<Long>> implements ObjectXMLWrit
   }
 
   @Override
-  public void writeChildTags(TransformerHandler hd, E object)
+  public void writeChildTags(TransformerHandler hd, E object) throws Exception
   {
     // Nothing!
   }
