@@ -54,6 +54,6 @@ public class ObjectXmlDriver<E extends Identifiable<Long>> extends ObjectsConnec
     ObjectsXMLWriter<E> w=new ObjectsXMLWriter<>(_writer);
     List<E> sortedObjects=new ArrayList<E>(objects);
     Collections.sort(sortedObjects,new IdentifiableComparator<E>());
-    w.writeObjectsFile(_xmlFile,objects);
+    w.writeObjectsFile(_xmlFile,sortedObjects);
   }
 }
