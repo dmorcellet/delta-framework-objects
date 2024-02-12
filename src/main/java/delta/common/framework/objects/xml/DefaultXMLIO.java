@@ -33,7 +33,7 @@ public class DefaultXMLIO<E extends Identifiable<Long>> implements ObjectXMLWrit
   }
 
   @Override
-  public void writeMainAttributes(TransformerHandler hd, AttributesImpl objectAttrs, E object)
+  public void writeMainAttributes(TransformerHandler hd, AttributesImpl objectAttrs, E object) throws Exception
   {
     // Nothing!
   }

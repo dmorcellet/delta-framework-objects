@@ -194,7 +194,6 @@ public class ObjectsManager<E extends Identifiable<Long>>
       ret=loadAll(ids);
     }
     return ret;
-
   }
 
   /**

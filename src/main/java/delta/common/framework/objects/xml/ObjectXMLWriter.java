@@ -18,8 +18,9 @@ public interface ObjectXMLWriter<E extends Identifiable<Long>>
    * @param hd Output stream.
    * @param objectAttrs Storage for attributes to write.
    * @param object Object to write.
+   * @throws Exception if an error occurs.
    */
-  void writeMainAttributes(TransformerHandler hd, AttributesImpl objectAttrs, E object);
+  void writeMainAttributes(TransformerHandler hd, AttributesImpl objectAttrs, E object) throws Exception;
 
   /**
    * Write child tags for the object, if any.
