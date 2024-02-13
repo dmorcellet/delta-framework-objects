@@ -150,4 +150,12 @@ public class ObjectsSource
     ObjectsManager<E> manager=new ObjectsManager<E>();
     _managers.put(c,manager);
   }
+
+  /**
+   * Close this data source.
+   */
+  public void close()
+  {
+    // Nothing!
+  }
 }

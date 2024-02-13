@@ -82,9 +82,7 @@ public abstract class SqlObjectsSource extends ObjectsSource
     _driver.setForeignKeyChecks(doCheck);
   }
 
-  /**
-   * Close this data source.
-   */
+  @Override
   public void close()
   {
     if (_driver!=null)
