@@ -6,7 +6,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashMap;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Manages the persistence drivers for an objects source.
@@ -14,7 +15,7 @@ import org.apache.log4j.Logger;
  */
 public class ObjectSqlDriverManager
 {
-  private static final Logger LOGGER=Logger.getLogger(ObjectSqlDriverManager.class);
+  private static final Logger LOGGER=LoggerFactory.getLogger(ObjectSqlDriverManager.class);
   private String _dbName;
   private DatabaseConfiguration _databaseCfg;
   private DatabaseType _databaseType;

@@ -4,7 +4,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Access to database parameters.
@@ -12,7 +13,7 @@ import org.apache.log4j.Logger;
  */
 public class DatabaseConfiguration
 {
-  private static final Logger LOGGER=Logger.getLogger(DatabaseConfiguration.class);
+  private static final Logger LOGGER=LoggerFactory.getLogger(DatabaseConfiguration.class);
 
   private String _dbType;
   private String _jdbcDriver;

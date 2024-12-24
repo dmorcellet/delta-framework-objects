@@ -3,7 +3,8 @@ package delta.common.framework.objects.data;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Driver that manages the persistence of a single data objects class.
@@ -12,7 +13,7 @@ import org.apache.log4j.Logger;
  */
 public class ObjectsConnector<E extends Identifiable<Long>>
 {
-  private static final Logger LOGGER=Logger.getLogger(ObjectsConnector.class);
+  private static final Logger LOGGER=LoggerFactory.getLogger(ObjectsConnector.class);
 
   private ObjectsSource _source;
 
