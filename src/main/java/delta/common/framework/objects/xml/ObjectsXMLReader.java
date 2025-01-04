@@ -44,9 +44,12 @@ public class ObjectsXMLReader<E extends Identifiable<Long>>
       throw new IllegalStateException("Cannot read XML file: "+fromFile);
     }
 
+    LOGGER.info("Reading objects file: {}", fromFile);
+
     List<E> ret=new ArrayList<E>();
     // Objects
     List<Element> objectTags=DOMParsingTools.getChildTagsByName(root,ObjectsXMLConstants.OBJECT_TAG);
+    LOGGER.debug("Got {} object tags!",Integer.valueOf(objectTags.size()));
     for(Element objectTag : objectTags)
     {
       // Identifier
@@ -62,6 +65,7 @@ public class ObjectsXMLReader<E extends Identifiable<Long>>
         LOGGER.warn("Read a null object!");
       }
     }
+    LOGGER.debug("Read {} objects!",Integer.valueOf(ret.size()));
     return ret;
   }
 }
