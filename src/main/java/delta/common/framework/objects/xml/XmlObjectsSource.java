@@ -66,6 +66,7 @@ public class XmlObjectsSource extends ObjectsSource
   {
     super.addClass(c);
     ObjectsManager<E> objectsMgr=getManager(c);
+    objectsMgr.useCache(true);
     objectsMgr.setDriver(driver);
     driver.setObjectsManager(objectsMgr);
   }

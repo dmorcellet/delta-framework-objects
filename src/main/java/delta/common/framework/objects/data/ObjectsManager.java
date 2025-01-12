@@ -3,9 +3,6 @@ package delta.common.framework.objects.data;
 import java.util.ArrayList;
 import java.util.List;
 
-import delta.common.utils.configuration.Configuration;
-import delta.common.utils.configuration.Configurations;
-
 /**
  * Objects manager.
  * Manages all the objects of a class in a single data location.
@@ -26,11 +23,23 @@ public class ObjectsManager<E extends Identifiable<Long>>
    */
   public ObjectsManager()
   {
-    Configuration cfg=Configurations.getConfiguration();
-    boolean useCache=cfg.getBooleanValue("OBJECTS","USE_CACHE",true);
+    // By default: no cache!
+    _cache=null;
+  }
+
+  /**
+   * Use cache or not.
+   * @param useCache <code>true</code> to use cache.
+   */
+  public void useCache(boolean useCache)
+  {
     if (useCache)
     {
       _cache=new ObjectsCache<E>();
+    }
+    else
+    {
+      _cache=null;
     }
   }
 
